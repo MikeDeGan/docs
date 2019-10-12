@@ -2,5 +2,5 @@ site_name: My Docs
 theme:
   name: "material"
   palette:
-    primary: "indigo"
-    accent: "indigo"
+    primary: "teal"
+    accent: "teal"
