@@ -275,8 +275,35 @@
                   <h1>TyporaTest</h1>
                 
                 <p>Typora that is a huge margin. kljfljfljsldfkjsdlf lskjdfls lskjd fl lskdjf l lkjsdf ll lksdjf lll sdflkl lskdjf ll sdlfkj llsjd fllksjdf llksdjf lskdjf lksdjf llskdj flslskdjf lslskjd fpwuerp wriu wsdjf lsz,mnvcnv ,xnv ,xc</p>
-<p><img alt="Screenshot 2019-10-17 at 8.32.38 PM" src="../images/Screenshot 2019-10-17 at 8.32.38 PM.png" /></p>
+<p><img src="images/Screenshot 2019-10-17 at 8.32.38 PM.png" alt="GitHub Commit Chart" style="zoom:150%;" /></p>
 <h2 id="there-must-be-a-better-way-to-insert-images">There must be a better way to insert images!</h2>
+<p><img alt="" src="../images/Screenshot 2019-10-12 at 1.00.53 PM.png" /></p>
+<p>This is a quick bit of code:</p>
+<pre><code class="javascript">class GoogleAuth extends React.Component {
+  componentDidMount() {
+    window.gapi.load(&quot;client:auth2&quot;, () =&gt; {
+      window.gapi.client
+        .init({
+          clientId:
+            &quot;318802615607-3l2k61n5spk3n7u6b2mb49geeqi2ueng.apps.googleusercontent.com&quot;,
+          scope: &quot;email&quot;
+        })
+        .then(() =&gt; {
+          this.auth = window.gapi.auth2.getAuthInstance();
+          this.onAuthChange(this.auth.isSignedIn.get());
+          this.auth.isSignedIn.listen(this.onAuthChange);
+        });
+    });
+  }
+</code></pre>
+
+<p>Have some tasks to do...</p>
+<ul>
+<li>[ ] do this</li>
+<li>[x] and this</li>
+<li>[ ] not this</li>
+</ul>
+<p>Now what ?</p>
                 
                   
                 
