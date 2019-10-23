@@ -1,5 +1,5 @@
 ---
-title: Portal
+title: Portals
 ---
 
 # Modal window in a React app
