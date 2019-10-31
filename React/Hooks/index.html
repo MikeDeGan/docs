@@ -294,6 +294,26 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#lifecycle-methods" class="md-nav__link">
+    Lifecycle Methods
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#componentdidmount" class="md-nav__link">
+    componentDidMount
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
       
       
       
@@ -363,6 +383,26 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#lifecycle-methods" class="md-nav__link">
+    Lifecycle Methods
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#componentdidmount" class="md-nav__link">
+    componentDidMount
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
       
       
       
@@ -392,6 +432,62 @@
 <h2 id="just-use-functions">Just use Functions</h2>
 <p>Using functions instead of classes removes the Super(props) and 'this' issues right away. Ok great now what about state and life-cycle methods, they are kind of handy.</p>
 <h2 id="state">State</h2>
+<p>No need for a class based component. You will need to import 'useState' into your functional component.</p>
+<pre><code class="javascript">import React, { useState } from 'react'
+
+const Shop = props =&gt; {
+  const [cart, setCart] = useState([])
+  const cartHandler = () =&gt; {
+    setCart(['A Book'])
+  }
+  return &lt;button onClick={cartHandler}&gt;Add to Cart&lt;/button&gt;
+}
+</code></pre>
+
+<p>useState() returns an array with two elements. The first element is the state and the second is a function that will set the state. </p>
+<p>State is not just one object containing everything. You can have several 'states' and they can be anything like a string or boolean, whatever. It does not have to be an array as shown above.</p>
+<p>If you have multiple pieces if state that you need to track just create them like this...</p>
+<pre><code class="javascript">  const [cart, setCart] = useState([])
+  const [myList, setMyList] = useState('not an array')
+</code></pre>
+
+<p>When you set state it will completely replace state. You don't just pass in updates as you did in a class based component. So if your state was set to {el1: 'one', el2: 'two'} you could not just do </p>
+<pre><code class="javascript">setState({el2: 'three'})
+</code></pre>
+
+<p>you would have to either do </p>
+<pre><code class="javascript">setState({...state}, {el2: 'three'})
+</code></pre>
+
+<p>or something similar.</p>
+<h2 id="lifecycle-methods">Lifecycle Methods</h2>
+<p>It looks like lifecycle Methods are sort of being referred to as 'side effects' under React Hooks. The core React Hook that will be used in place of the Lifecycle Methods is called useEffect().</p>
+<h3 id="componentdidmount">componentDidMount</h3>
+<p>To perform the functionality of the class based componentDidMount do the following</p>
+<pre><code class="javascript">import React, { useState, useEffect } from 'react'
+
+const Shop = props =&gt; {
+  const [products, setProducts] = useState([])
+
+  useEffect(() =&gt; {
+    fetch('my-backend.com/products')
+      .then(res =&gt; res.json())
+      .then(fetchedProducts =&gt; setProducts(fetchedProducts))
+  }, [])
+
+  return (
+
+    &lt;ul&gt;
+      {products.map(product =&gt; (
+        &lt;li key={product.id}&gt;{product.name}&lt;/li&gt;
+      ))}
+    &lt;/ul&gt;
+
+  )
+}
+</code></pre>
+
+<p>The key here is the second element of the useEffect function, the empty array []. The second element controls when this function gets run. It will run whenever the second element changes.</p>
                 
                   
                 
