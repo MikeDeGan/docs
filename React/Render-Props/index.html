@@ -36,7 +36,7 @@
     
     
       
-        <title>Portals</title>
+        <title>Render Props</title>
       
     
     
@@ -83,7 +83,7 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
     
-      <a href="#modal-window-in-a-react-app" tabindex="1" class="md-skip">
+      <a href="#render-props" tabindex="1" class="md-skip">
         Skip to content
       </a>
     
@@ -109,7 +109,7 @@
             </span>
             <span class="md-header-nav__topic">
               
-                Portals
+                Render Props
               
             </span>
           
@@ -257,6 +257,18 @@
           
           
 
+
+  <li class="md-nav__item">
+    <a href="../Portals/" title="Portals" class="md-nav__link">
+      Portals
+    </a>
+  </li>
+
+        
+          
+          
+          
+
   
 
 
@@ -267,22 +279,39 @@
       
     
     
-    <a href="./" title="Portals" class="md-nav__link md-nav__link--active">
-      Portals
-    </a>
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Render Props
+      </label>
     
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../Render-Props/" title="Render Props" class="md-nav__link">
+    <a href="./" title="Render Props" class="md-nav__link md-nav__link--active">
       Render Props
     </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#react-docs-example" class="md-nav__link">
+    React Docs Example
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
   </li>
 
         
@@ -308,6 +337,22 @@
     
   
   
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#react-docs-example" class="md-nav__link">
+    React Docs Example
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -319,56 +364,66 @@
               
                 
                 
-                <h1 id="modal-window-in-a-react-app">Modal window in a React app</h1>
-<p>The key to getting a modal window to work in React is to use Portals. </p>
-<p>Portals allow a component to render a sub component but to have it act as a child of some other component, usually the 'root' div.</p>
-<p>In this example StreamDelete is opening a modal window under 'root'.</p>
-<p><img alt="React component hierarchy chart" src="../../images/Screenshot 2019-10-22 at 7.11.11 PM.png" /></p>
-<p>Portals are described in detail in the Udemy course <em>Modern React with Redux</em> section 21.</p>
-<p>When you attach the modal to a div the modal will replace the content of that div or whatever with the content of your modal. So you will almost always create a sibling to the 'root' element to attach the modal to. </p>
-<pre><code class="html"> &lt;body&gt;
-    &lt;noscript&gt;You need to enable JavaScript to run this app.&lt;/noscript&gt;
-    &lt;div id=&quot;root&quot;&gt;&lt;/div&gt;
-    &lt;div id=&quot;modal&quot;&gt;&lt;/div&gt;
-  &lt;/body&gt;
-</code></pre>
+                <h1 id="render-props">Render Props</h1>
+<p>The term “render prop” refers to a technique for sharing code between React components using a prop whose value is a function. It helps to share state or behavior that one component contains into another component. </p>
+<p>In most cases this technique can be handled cleaner with the new React Hooks.</p>
+<blockquote>
+<p><em>Hooks can replace some render props, but not all of them.</em></p>
+<p><em>Hooks can’t render anything, they can’t set values on context (even though they can consume values), and they can’t implement error boundaries. Given these limitations, you may still find yourself using render props from time to time.</em></p>
+</blockquote>
+<h2 id="react-docs-example">React Docs Example</h2>
+<p>In this example taken from the <a href="https://reactjs.org/docs/render-props.html">reactjs.org docs</a> render props page you can see how they have made the Mouse component reusable by passing in a component to dynamically determine what to render. </p>
+<pre><code class="javascript">class Cat extends React.Component {
+  render() {
+    const mouse = this.props.mouse;
+    return (
+      &lt;img src=&quot;/cat.jpg&quot; style={{ position: 'absolute', left: mouse.x, top: mouse.y }} /&gt;
+    );
+  }
+}
 
-<p>The modal component will not return normal jsx it will return the ReactDOM.createPortal function. </p>
-<pre><code class="javascript">import React from &quot;react&quot;;
-import ReactDOM from &quot;react-dom&quot;;
+class Mouse extends React.Component {
+  constructor(props) {
+    super(props);
+    this.handleMouseMove = this.handleMouseMove.bind(this);
+    this.state = { x: 0, y: 0 };
+  }
 
-const Modal = props =&gt; {
-  return ReactDOM.createPortal(
-    &lt;div className=&quot;ui dimmer modals visible active&quot;&gt;
-      &lt;div className=&quot;ui standard modal visible active&quot;&gt;
-        lorem20 crap lkjsflj ljsdf ljf lkjs flksjdf
+  handleMouseMove(event) {
+    this.setState({
+      x: event.clientX,
+      y: event.clientY
+    });
+  }
+
+  render() {
+    return (
+      &lt;div style={{ height: '100%' }} onMouseMove={this.handleMouseMove}&gt;
+
+        {/*
+          Instead of providing a static representation of what &lt;Mouse&gt; renders,
+          use the `render` prop to dynamically determine what to render.
+        */}
+        {this.props.render(this.state)}
       &lt;/div&gt;
-    &lt;/div&gt;,
-    document.querySelector(&quot;#modal&quot;)
-  );
-};
+    );
 
-export default Modal;
+  }
+}
+
+class MouseTracker extends React.Component {
+  render() {
+    return (
+      &lt;div&gt;
+        &lt;h1&gt;Move the mouse around!&lt;/h1&gt;
+        &lt;Mouse render={mouse =&gt; (
+          &lt;Cat mouse={mouse} /&gt;
+        )}/&gt;
+      &lt;/div&gt;
+    );
+  }
+}
 </code></pre>
-
-<p>To call the modal you just call it like any component</p>
-<pre><code class="javascript">import React from &quot;react&quot;;
-import Modal from &quot;../Modal&quot;;
-
-const StreamDelete = () =&gt; {
-  return (
-    &lt;div&gt;
-      StreamDelete
-      &lt;Modal /&gt;
-    &lt;/div&gt;
-  );
-};
-
-export default StreamDelete;
-</code></pre>
-
-<p>NOTE:</p>
-<p>You would normally use Portals to render modal windows but would also use portals if trying to render some React component into some html that was not created by your application like server side rendered html like Java or Ruby or something like that.</p>
                 
                   
                 
@@ -389,7 +444,7 @@ export default StreamDelete;
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
         
-          <a href="../Hooks/" title="Hooks" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../Portals/" title="Portals" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-flex__cell md-flex__cell--shrink">
               <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
             </div>
@@ -398,25 +453,11 @@ export default StreamDelete;
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                Hooks
+                Portals
               </span>
             </div>
           </a>
         
-        
-          <a href="../Render-Props/" title="Render Props" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
-            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
-              <span class="md-flex__ellipsis">
-                <span class="md-footer-nav__direction">
-                  Next
-                </span>
-                Render Props
-              </span>
-            </div>
-            <div class="md-flex__cell md-flex__cell--shrink">
-              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
-            </div>
-          </a>
         
       </nav>
     </div>
