@@ -90,4 +90,5 @@ const Shop = props => {
 }
 ```
 
-The key here is the second element of the useEffect function, the empty array []. The second element controls when this function gets run. It will run whenever the second element changes.
+The key here is the second element of the useEffect function, the empty array []. The second element controls when this function gets run. It will run whenever the second element changes. So setting the second element to an empty array will ensure that it will never change and never run again.
+
