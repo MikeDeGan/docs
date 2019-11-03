@@ -43,10 +43,15 @@ To gen an rsa public/private key pair with Linux:
 ```
 cd ~
 cd .ssh
-ssh-keygen -t rsa -b 2048
+ssh-keygen -t rsa -b 4096 -C "myemail@gmail.com"
 ```
 
 The -t is for 'type', the -b if for bytes. It will ask you for a keyname and a passphrase.
 
 ## SSH on Github
 
+I like to create a different key for each repo and client. Usually name them id_rsa_reponame.
+
+Need to do some ssh-agent and ssh-add stuff in here...
+
+copy the .pub key to Github
