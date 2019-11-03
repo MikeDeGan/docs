@@ -202,6 +202,18 @@
 
 
   <li class="md-nav__item">
+    <a href="../Performance/" title="Performance" class="md-nav__link">
+      Performance
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
     <a href="../ReactRouter/" title="React Router" class="md-nav__link">
       React Router
     </a>
@@ -318,13 +330,13 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7" type="checkbox" id="nav-7">
     
-    <label class="md-nav__link" for="nav-6">
+    <label class="md-nav__link" for="nav-7">
       React
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-6">
+      <label class="md-nav__title" for="nav-7">
         React
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -483,8 +495,48 @@ ssh-keygen -t rsa -b 4096 -C &quot;myemail@gmail.com&quot;
 <p>The -t is for 'type', the -b if for bytes. It will ask you for a keyname and a passphrase.</p>
 <h2 id="ssh-on-github">SSH on Github</h2>
 <p>I like to create a different key for each repo and client. Usually name them id_rsa_reponame.</p>
-<p>Need to do some ssh-agent and ssh-add stuff in here...</p>
-<p>copy the .pub key to Github</p>
+<p>Start the ssh agent from the .ssh hidden folder</p>
+<pre><code>cd .ssh
+eval $(ssh-agent)
+</code></pre>
+
+<p>Then add your key to the agent</p>
+<pre><code>ssh-add ~/.ssh/id_rsa_docs
+</code></pre>
+
+<p>Now copy the .pub key to Github</p>
+<p>Install xclip if it is not already installed</p>
+<pre><code>sudo apt-get install xclip
+</code></pre>
+
+<p>copy the public (NOT THE PRIVATE) key to the clipboard</p>
+<pre><code>xclip -sel clip &lt; ~/.ssh/id_rsa_docs.pub
+</code></pre>
+
+<p>DID YOU HAVE THE .PUB ON THE END? Don't forget the .pub!</p>
+<p>Now go to Github.com to set up the key.</p>
+<ul>
+<li>In the upper-right corner of any page, click your profile photo, then click Settings</li>
+<li>In the user settings sidebar, click SSH and GPG keys.</li>
+<li>Click New SSH key</li>
+<li>enter a title</li>
+<li>paste the key</li>
+<li>click the add SSH key button</li>
+</ul>
+<p>If you need to change your remote's URL from HTTPS to SSH:</p>
+<ul>
+<li>check your current remote settings with the following command</li>
+</ul>
+<p><code>git remote -v</code></p>
+<ul>
+<li>Set your remote to the ssh connection</li>
+</ul>
+<p><code>git remote set-url origin git@github.com:MikeDeGan/repo-name.git</code></p>
+<p>Note that on your first push you may receive a warning</p>
+<blockquote>
+<p>The authenticity of host 'github.com (140.82.114.3)' can't be established.</p>
+</blockquote>
+<p>If the shown RSA fingerprint looks correct then enter 'yes' to add github to the list of known sites</p>
                 
                   
                 
