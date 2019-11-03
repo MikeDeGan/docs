@@ -52,6 +52,60 @@ The -t is for 'type', the -b if for bytes. It will ask you for a keyname and a p
 
 I like to create a different key for each repo and client. Usually name them id_rsa_reponame.
 
-Need to do some ssh-agent and ssh-add stuff in here...
+Start the ssh agent from the .ssh hidden folder
 
-copy the .pub key to Github
+```
+cd .ssh
+eval $(ssh-agent)
+```
+
+Then add your key to the agent
+
+```
+ssh-add ~/.ssh/id_rsa_docs
+```
+
+Now copy the .pub key to Github
+
+Install xclip if it is not already installed
+
+```
+sudo apt-get install xclip
+```
+
+copy the public (NOT THE PRIVATE) key to the clipboard
+
+```
+xclip -sel clip < ~/.ssh/id_rsa_docs.pub
+```
+
+DID YOU HAVE THE .PUB ON THE END? Don't forget the .pub!
+
+Now go to Github.com to set up the key.
+
+- In the upper-right corner of any page, click your profile photo, then click Settings
+- In the user settings sidebar, click SSH and GPG keys.
+- Click New SSH key
+- enter a title
+- paste the key
+- click the add SSH key button
+
+If you need to change your remote's URL from HTTPS to SSH:
+
+- check your current remote settings with the following command
+
+  ```
+   git remote -v
+  ```
+
+- Set your remote to the ssh connection
+
+  ```
+  git remote set-url origin git@github.com:MikeDeGan/repo-name.git
+  ```
+
+Note that on your first push you may receive a warning
+
+> The authenticity of host 'github.com (140.82.114.3)' can't be established.
+
+If the shown RSA fingerprint looks correct then enter 'yes' to add github to the list of known sites
