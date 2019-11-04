@@ -104,7 +104,7 @@ If you need to change your remote's URL from HTTPS to SSH:
   git remote set-url origin git@github.com:MikeDeGan/repo-name.git
   ```
 
-Note that on your first push you may receive a warning
+Note that on your first push you will receive a warning. You are supposed to call the other party and verify the fingerprint.
 
 > The authenticity of host 'github.com (140.82.114.3)' can't be established.
 
