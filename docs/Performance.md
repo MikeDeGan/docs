@@ -61,7 +61,7 @@ Optimize images
 
 5. Media attributes. You can do these in your html files as well. As example you can put the following in your `<head>` tag to only load this css on screens over 500px. media= will always default to media="all".
 
-   ```html
+   ```javascript
    <link rel="stylesheet" href="./style2.css" media="only screen and (min-width:500px)">
    ```
 
