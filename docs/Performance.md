@@ -66,3 +66,28 @@ Optimize images
    ```
 
 6. Less specificity. The less specific your css the less processing the browser will have to do and the fewer characters that will be needed to download. Not a huge performance increase but it is something.
+
+## Javascript
+
+- Load scripts asynchronously
+
+  Javascript will download and execute immediately, blocking further downloading of html, css, etc.
+
+  ![Script tag options](images/Screenshot 2019-11-06 at 9.10.23 PM.png)
+
+- Defer loading of scripts
+
+  The <script async> and <script defer> tags should be used for scripts that do not manipulate the dom or css. Perfect for things like Google Analytics.
+
+  Defer acts very much the same as putting your scripts at the bottom just above the /body tag.
+
+  - Normal execution <script>
+    *This is the default behavior of the <script> element. Parsing of the HTML code pauses while the script is executing. For slow servers and heavy scripts this means that displaying the webpage will be delayed.*
+  - Deferred execution <script defer>
+    *Simply put: delaying script execution until the HTML parser has finished. A positive effect of this attribute is that the DOM will be available for your script. However, since not every browser supports defer yet, don’t rely on it!*
+  - Asynchronous execution <script async>
+    *Don’t care when the script will be available? Asynchronous is the best of both worlds: HTML parsing may continue and the script will be executed as soon as it’s ready. I’d recommend this for scripts such as Google Analytics.*
+
+- Minimize DOM manipulation
+
+- Avoid long running Javascript
