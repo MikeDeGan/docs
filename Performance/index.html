@@ -477,10 +477,10 @@
 <p><img alt="Citical Render Path" src="../images/Screenshot 2019-11-04 at 7.29.35 PM.png" /></p>
 <ol>
 <li>
-<p>Load <style> in head. The css Object Model is required to render.</p>
+<p>Load <code>&lt;style&gt;</code> in head. The css Object Model is required to render.</p>
 </li>
 <li>
-<p>Load <script> right before the /body tag. If the js is in the head the render will wait for the js to download. JS needs the html and css parsing to finish prior to running. So having js at the bottom gives your html, css and media a chance to download and render before the js downloads and runs.</p>
+<p>Load <code>&lt;script&gt;</code> right before the /body tag. If the js is in the head the render will wait for the js to download. JS needs the html and css parsing to finish prior to running. So having js at the bottom gives your html, css and media a chance to download and render before the js downloads and runs.</p>
 </li>
 <li>
 <p>Load only what is needed. Clean up your css no unnecessary or unused css.</p>
@@ -509,7 +509,7 @@
    &lt;/script&gt;
    &lt;/body&gt;</code></p>
 <ol>
-<li>Media attributes. You can do these in your html files as well. As example you can put the following in your <head> tag to only load this css on screens over 500px. media= will always default to media="all".</li>
+<li>Media attributes. You can do these in your html files as well. As example you can put the following in your <code>&lt;head&gt;</code> tag to only load this css on screens over 500px. media= will always default to media="all".</li>
 </ol>
 <p><code>html
    &lt;link rel="stylesheet" href="./style2.css" media="only screen and (min-width:500px)"&gt;</code></p>
@@ -525,15 +525,15 @@
 <ul>
 <li>Defer loading of scripts</li>
 </ul>
-<p>The <script async> and <script defer> tags should be used for scripts that do not manipulate the dom or css. Perfect for things like Google Analytics.</p>
+<p>The <code>&lt;script async&gt;</code> and <code>&lt;script defer&gt;</code> tags should be used for scripts that do not manipulate the dom or css. Perfect for things like Google Analytics.</p>
 <p>Defer acts very much the same as putting your scripts at the bottom just above the /body tag.</p>
 <ul>
-<li>Normal execution <script>
-    <em>This is the default behavior of the <script> element. Parsing of the HTML code pauses while the script is executing. For slow servers and heavy scripts this means that displaying the webpage will be delayed.</em></li>
-<li>Deferred execution <script defer>
+<li>Normal execution <code>&lt;script&gt;</code>
+    <em>This is the default behavior of the <code>&lt;script&gt;</code> element. Parsing of the HTML code pauses while the script is executing. For slow servers and heavy scripts this means that displaying the webpage will be delayed.</em></li>
+<li>Deferred execution <code>&lt;script defer&gt;</code>
     <em>Simply put: delaying script execution until the HTML parser has finished. A positive effect of this attribute is that the DOM will be available for your script. However, since not every browser supports defer yet, don’t rely on it!</em></li>
 <li>
-<p>Asynchronous execution <script async>
+<p>Asynchronous execution <code>&lt;script async&gt;</code>
     <em>Don’t care when the script will be available? Asynchronous is the best of both worlds: HTML parsing may continue and the script will be executed as soon as it’s ready. I’d recommend this for scripts such as Google Analytics.</em></p>
 </li>
 <li>
