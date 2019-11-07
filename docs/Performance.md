@@ -30,9 +30,9 @@ Optimize images
 
 ![Citical Render Path](./images/Screenshot 2019-11-04 at 7.29.35 PM.png)
 
-1. Load <style> in head. The css Object Model is required to render.
+1. Load `<style>` in head. The css Object Model is required to render.
 
-2. Load <script> right before the /body tag. If the js is in the head the render will wait for the js to download. JS needs the html and css parsing to finish prior to running. So having js at the bottom gives your html, css and media a chance to download and render before the js downloads and runs.
+2. Load `<script>` right before the /body tag. If the js is in the head the render will wait for the js to download. JS needs the html and css parsing to finish prior to running. So having js at the bottom gives your html, css and media a chance to download and render before the js downloads and runs.
 
 3. Load only what is needed. Clean up your css no unnecessary or unused css.
 
@@ -59,7 +59,7 @@ Optimize images
    </body>
    ```
 
-5. Media attributes. You can do these in your html files as well. As example you can put the following in your <head> tag to only load this css on screens over 500px. media= will always default to media="all".
+5. Media attributes. You can do these in your html files as well. As example you can put the following in your `<head>` tag to only load this css on screens over 500px. media= will always default to media="all".
 
    ```html
    <link rel="stylesheet" href="./style2.css" media="only screen and (min-width:500px)">
@@ -77,15 +77,15 @@ Optimize images
 
 - Defer loading of scripts
 
-  The <script async> and <script defer> tags should be used for scripts that do not manipulate the dom or css. Perfect for things like Google Analytics.
+  The `<script async>` and `<script defer>` tags should be used for scripts that do not manipulate the dom or css. Perfect for things like Google Analytics.
 
   Defer acts very much the same as putting your scripts at the bottom just above the /body tag.
 
-  - Normal execution <script>
-    *This is the default behavior of the <script> element. Parsing of the HTML code pauses while the script is executing. For slow servers and heavy scripts this means that displaying the webpage will be delayed.*
-  - Deferred execution <script defer>
+  - Normal execution `<script>`
+    *This is the default behavior of the `<script>` element. Parsing of the HTML code pauses while the script is executing. For slow servers and heavy scripts this means that displaying the webpage will be delayed.*
+  - Deferred execution `<script defer>`
     *Simply put: delaying script execution until the HTML parser has finished. A positive effect of this attribute is that the DOM will be available for your script. However, since not every browser supports defer yet, don’t rely on it!*
-  - Asynchronous execution <script async>
+  - Asynchronous execution `<script async>`
     *Don’t care when the script will be available? Asynchronous is the best of both worlds: HTML parsing may continue and the script will be executed as soon as it’s ready. I’d recommend this for scripts such as Google Analytics.*
 
 - Minimize DOM manipulation
