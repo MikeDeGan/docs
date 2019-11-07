@@ -242,6 +242,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#javascript" class="md-nav__link">
+    Javascript
+  </a>
+  
+</li>
+      
       
       
       
@@ -419,6 +426,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#javascript" class="md-nav__link">
+    Javascript
+  </a>
+  
+</li>
+      
       
       
       
@@ -502,6 +516,33 @@
 <ol>
 <li>Less specificity. The less specific your css the less processing the browser will have to do and the fewer characters that will be needed to download. Not a huge performance increase but it is something.</li>
 </ol>
+<h2 id="javascript">Javascript</h2>
+<ul>
+<li>Load scripts asynchronously</li>
+</ul>
+<p>Javascript will download and execute immediately, blocking further downloading of html, css, etc.</p>
+<p><img alt="Script tag options" src="../images/Screenshot 2019-11-06 at 9.10.23 PM.png" /></p>
+<ul>
+<li>Defer loading of scripts</li>
+</ul>
+<p>The <script async> and <script defer> tags should be used for scripts that do not manipulate the dom or css. Perfect for things like Google Analytics.</p>
+<p>Defer acts very much the same as putting your scripts at the bottom just above the /body tag.</p>
+<ul>
+<li>Normal execution <script>
+    <em>This is the default behavior of the <script> element. Parsing of the HTML code pauses while the script is executing. For slow servers and heavy scripts this means that displaying the webpage will be delayed.</em></li>
+<li>Deferred execution <script defer>
+    <em>Simply put: delaying script execution until the HTML parser has finished. A positive effect of this attribute is that the DOM will be available for your script. However, since not every browser supports defer yet, don’t rely on it!</em></li>
+<li>
+<p>Asynchronous execution <script async>
+    <em>Don’t care when the script will be available? Asynchronous is the best of both worlds: HTML parsing may continue and the script will be executed as soon as it’s ready. I’d recommend this for scripts such as Google Analytics.</em></p>
+</li>
+<li>
+<p>Minimize DOM manipulation</p>
+</li>
+<li>
+<p>Avoid long running Javascript</p>
+</li>
+</ul>
                 
                   
                 
