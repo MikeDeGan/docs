@@ -475,7 +475,7 @@
 </ul>
 <h2 id="critical-render-path">Critical Render Path</h2>
 <p><img alt="Citical Render Path" src="../images/Screenshot 2019-11-04 at 7.29.35 PM.png" /></p>
-<ol>
+<ul>
 <li>
 <p>Load <code>&lt;style&gt;</code> in head. The css Object Model is required to render.</p>
 </li>
@@ -488,34 +488,36 @@
 <li>
 <p>Above the fold loading. Get just the css needed to style the above the fold stuff. You can have two css files, one that gets loaded in the head and the below the fold css that gets loaded after the initial render. It can be done like this..</p>
 </li>
-</ol>
-<p><code>javascript
-   //At the bottom of the html
-   &lt;script type="text/javascript"&gt;
-       const loadStyleSheet = src =&gt; {
-           if(document.createStylesheet) {
-               document.createStylesheet(src)
-           }  else {
-               const stylesheet = document.createElement('link');
-               stylesheet.href = src;
-               stylesheet.type = 'text/css';
-               stylesheet.rel = 'stylesheet';
-               document.getElementsByTagName('head')[0].appendChild(stylesheet)
-           }
-       }
-       window.onload - function() {
-           loadStyleSheet('./style.css')
-       }
-   &lt;/script&gt;
-   &lt;/body&gt;</code></p>
-<ol>
+</ul>
+<pre><code class="javascript">//At the bottom of the html
+&lt;script type=&quot;text/javascript&quot;&gt;
+    const loadStyleSheet = src =&gt; {
+        if(document.createStylesheet) {
+            document.createStylesheet(src)
+        }  else {
+            const stylesheet = document.createElement('link');
+            stylesheet.href = src;
+            stylesheet.type = 'text/css';
+            stylesheet.rel = 'stylesheet';
+            document.getElementsByTagName('head')[0].appendChild(stylesheet)
+        }
+    }
+    window.onload - function() {
+        loadStyleSheet('./style.css')
+    }
+&lt;/script&gt;
+&lt;/body&gt;
+</code></pre>
+
+<ul>
 <li>Media attributes. You can do these in your html files as well. As example you can put the following in your <code>&lt;head&gt;</code> tag to only load this css on screens over 500px. media= will always default to media="all".</li>
-</ol>
-<p><code>javascript
-   &lt;link rel="stylesheet" href="./style2.css" media="only screen and (min-width:500px)"&gt;</code></p>
-<ol>
+</ul>
+<pre><code class="javascript">&lt;link rel=&quot;stylesheet&quot; href=&quot;./style2.css&quot; media=&quot;only screen and (min-width:500px)&quot;&gt;
+</code></pre>
+
+<ul>
 <li>Less specificity. The less specific your css the less processing the browser will have to do and the fewer characters that will be needed to download. Not a huge performance increase but it is something.</li>
-</ol>
+</ul>
 <h2 id="javascript">Javascript</h2>
 <ul>
 <li>Load scripts asynchronously</li>
