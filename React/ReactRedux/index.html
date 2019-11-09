@@ -36,7 +36,7 @@
     
     
       
-        <title>Hooks</title>
+        <title>React Redux - My Docs</title>
       
     
     
@@ -83,7 +83,7 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
     
-      <a href="#hooks" tabindex="1" class="md-skip">
+      <a href="#react-redux" tabindex="1" class="md-skip">
         Skip to content
       </a>
     
@@ -109,7 +109,7 @@
             </span>
             <span class="md-header-nav__topic">
               
-                Hooks
+                React Redux
               
             </span>
           
@@ -257,83 +257,11 @@
           
           
 
-  
 
-
-  <li class="md-nav__item md-nav__item--active">
-    
-    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-    
-      
-    
-    
-      <label class="md-nav__link md-nav__link--active" for="__toc">
-        Hooks
-      </label>
-    
-    <a href="./" title="Hooks" class="md-nav__link md-nav__link--active">
+  <li class="md-nav__item">
+    <a href="../Hooks/" title="Hooks" class="md-nav__link">
       Hooks
     </a>
-    
-      
-<nav class="md-nav md-nav--secondary">
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">Table of contents</label>
-    <ul class="md-nav__list" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#why-hooks" class="md-nav__link">
-    Why Hooks
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#just-use-functions" class="md-nav__link">
-    Just use Functions
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#state" class="md-nav__link">
-    State
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#lifecycle-methods" class="md-nav__link">
-    Lifecycle Methods
-  </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#componentdidmount" class="md-nav__link">
-    componentDidMount
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-      
-      
-      
-      
-    </ul>
-  
-</nav>
-    
   </li>
 
         
@@ -353,11 +281,20 @@
           
           
 
+  
 
-  <li class="md-nav__item">
-    <a href="../ReactRedux/" title="React Redux" class="md-nav__link">
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+    <a href="./" title="React Redux" class="md-nav__link md-nav__link--active">
       React Redux
     </a>
+    
   </li>
 
         
@@ -443,56 +380,6 @@
     
   
   
-    <label class="md-nav__title" for="__toc">Table of contents</label>
-    <ul class="md-nav__list" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#why-hooks" class="md-nav__link">
-    Why Hooks
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#just-use-functions" class="md-nav__link">
-    Just use Functions
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#state" class="md-nav__link">
-    State
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#lifecycle-methods" class="md-nav__link">
-    Lifecycle Methods
-  </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#componentdidmount" class="md-nav__link">
-    componentDidMount
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-      
-      
-      
-      
-    </ul>
-  
 </nav>
                   </div>
                 </div>
@@ -504,74 +391,7 @@
               
                 
                 
-                <h1 id="hooks">Hooks</h1>
-<h2 id="why-hooks">Why Hooks</h2>
-<p>Hooks overcomes many of the issues that we come across when using class based components. </p>
-<ul>
-<li>Calling Super(props) is annoying</li>
-<li>Classes make knowing how 'this' works difficult at times</li>
-<li>Organizing components by life-cycle methods forces us to sprinkle related logic throughout our components.</li>
-<li>React has no good primitive for sharing non-visual logic.</li>
-</ul>
-<h2 id="just-use-functions">Just use Functions</h2>
-<p>Using functions instead of classes removes the Super(props) and 'this' issues right away. Ok great now what about state and life-cycle methods, they are kind of handy.</p>
-<h2 id="state">State</h2>
-<p>No need for a class based component. You will need to import 'useState' into your functional component.</p>
-<pre><code class="javascript">import React, { useState } from 'react'
-
-const Shop = props =&gt; {
-  const [cart, setCart] = useState([])
-  const cartHandler = () =&gt; {
-    setCart(['A Book'])
-  }
-  return &lt;button onClick={cartHandler}&gt;Add to Cart&lt;/button&gt;
-}
-</code></pre>
-
-<p>useState() returns an array with two elements. The first element is the state and the second is a function that will set the state. </p>
-<p>State is not just one object containing everything. You can have several 'states' and they can be anything like a string or boolean, whatever. It does not have to be an array as shown above.</p>
-<p>If you have multiple pieces if state that you need to track just create them like this...</p>
-<pre><code class="javascript">  const [cart, setCart] = useState([])
-  const [myList, setMyList] = useState('not an array')
-</code></pre>
-
-<p>When you set state it will completely replace state. You don't just pass in updates as you did in a class based component. So if your state was set to {el1: 'one', el2: 'two'} you could not just do </p>
-<pre><code class="javascript">setState({el2: 'three'})
-</code></pre>
-
-<p>you would have to either do </p>
-<pre><code class="javascript">setState({...state}, {el2: 'three'})
-</code></pre>
-
-<p>or something similar.</p>
-<h2 id="lifecycle-methods">Lifecycle Methods</h2>
-<p>It looks like lifecycle Methods are sort of being referred to as 'side effects' under React Hooks. The core React Hook that will be used in place of the Lifecycle Methods is called useEffect().</p>
-<h3 id="componentdidmount">componentDidMount</h3>
-<p>To perform the functionality of the class based componentDidMount do the following</p>
-<pre><code class="javascript">import React, { useState, useEffect } from 'react'
-
-const Shop = props =&gt; {
-  const [products, setProducts] = useState([])
-
-  useEffect(() =&gt; {
-    fetch('my-backend.com/products')
-      .then(res =&gt; res.json())
-      .then(fetchedProducts =&gt; setProducts(fetchedProducts))
-  }, [])
-
-  return (
-
-    &lt;ul&gt;
-      {products.map(product =&gt; (
-        &lt;li key={product.id}&gt;{product.name}&lt;/li&gt;
-      ))}
-    &lt;/ul&gt;
-
-  )
-}
-</code></pre>
-
-<p>The key here is the second element of the useEffect function, the empty array []. The second element controls when this function gets run. It will run whenever the second element changes. So setting the second element to an empty array will ensure that it will never change and never run again.</p>
+                <h1 id="react-redux">React Redux</h1>
                 
                   
                 
@@ -592,7 +412,7 @@ const Shop = props =&gt; {
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
         
-          <a href="../../TyporaTest/" title="TyporaTest" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../Portals/" title="Portals" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-flex__cell md-flex__cell--shrink">
               <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
             </div>
@@ -601,19 +421,19 @@ const Shop = props =&gt; {
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                TyporaTest
+                Portals
               </span>
             </div>
           </a>
         
         
-          <a href="../Portals/" title="Portals" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../ReactRouter/" title="React Router" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
               <span class="md-flex__ellipsis">
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                Portals
+                React Router
               </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink">

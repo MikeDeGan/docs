@@ -230,7 +230,14 @@
       
         <li class="md-nav__item">
   <a href="#network-transfer-optimizations" class="md-nav__link">
-    network transfer optimizations
+    Network Transfer Optimizations
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#optimize-images" class="md-nav__link">
+    Optimize images
   </a>
   
 </li>
@@ -249,6 +256,27 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#resource-prefetching" class="md-nav__link">
+    Resource Prefetching
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#speed-analysis-tools" class="md-nav__link">
+    Speed Analysis Tools
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#http2" class="md-nav__link">
+    HTTP/2
+  </a>
+  
+</li>
+      
       
       
       
@@ -257,18 +285,6 @@
   
 </nav>
     
-  </li>
-
-    
-      
-      
-      
-
-
-  <li class="md-nav__item">
-    <a href="../ReactRouter/" title="React Router" class="md-nav__link">
-      React Router
-    </a>
   </li>
 
     
@@ -303,13 +319,13 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7" type="checkbox" id="nav-7">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6">
     
-    <label class="md-nav__link" for="nav-7">
+    <label class="md-nav__link" for="nav-6">
       React
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-7">
+      <label class="md-nav__title" for="nav-6">
         React
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -345,6 +361,30 @@
 
 
   <li class="md-nav__item">
+    <a href="../React/ReactRedux/" title="React Redux" class="md-nav__link">
+      React Redux
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../React/ReactRouter/" title="React Router" class="md-nav__link">
+      React Router
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../React/Render-Props/" title="Render Props" class="md-nav__link">
       Render Props
     </a>
@@ -363,13 +403,13 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-8" type="checkbox" id="nav-8">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7" type="checkbox" id="nav-7">
     
-    <label class="md-nav__link" for="nav-8">
+    <label class="md-nav__link" for="nav-7">
       Css
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-8">
+      <label class="md-nav__title" for="nav-7">
         Css
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -414,7 +454,14 @@
       
         <li class="md-nav__item">
   <a href="#network-transfer-optimizations" class="md-nav__link">
-    network transfer optimizations
+    Network Transfer Optimizations
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#optimize-images" class="md-nav__link">
+    Optimize images
   </a>
   
 </li>
@@ -429,6 +476,27 @@
         <li class="md-nav__item">
   <a href="#javascript" class="md-nav__link">
     Javascript
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#resource-prefetching" class="md-nav__link">
+    Resource Prefetching
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#speed-analysis-tools" class="md-nav__link">
+    Speed Analysis Tools
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#http2" class="md-nav__link">
+    HTTP/2
   </a>
   
 </li>
@@ -451,11 +519,11 @@
                 
                 
                 <h1 id="tips-for-web-site-performance">Tips for web site performance</h1>
-<h2 id="network-transfer-optimizations">network transfer optimizations</h2>
-<ol>
-<li>minimize your html, css and js files.</li>
-</ol>
-<p>Optimize images</p>
+<h2 id="network-transfer-optimizations">Network Transfer Optimizations</h2>
+<ul>
+<li>Minimize your html, css and js files.</li>
+</ul>
+<h2 id="optimize-images">Optimize images</h2>
 <ul>
 <li>use the appropriate image format for the job</li>
 <li>animations - use a gif</li>
@@ -544,7 +612,67 @@
 <li>
 <p>Avoid long running Javascript</p>
 </li>
+<li>
+<p>Chrome is working on Javascript not being parser blocking (render blocking)</p>
+</li>
 </ul>
+<h2 id="resource-prefetching">Resource Prefetching</h2>
+<p>Resource prefetching are ways of preloading or preparing for things that are very likely to be needed in the future. Things like resolving DNS for URLs that we know we are likely to visit or 'prefetching' images that will be needed soon.</p>
+<ul>
+<li>https://css-tricks.com/prefetching-preloading-prebrowsing/</li>
+</ul>
+<h2 id="speed-analysis-tools">Speed Analysis Tools</h2>
+<p>These sites will analyze your site and provide a detailed report scoring the site and showing where to improve.</p>
+<ul>
+<li>PageSpeed by Google</li>
+</ul>
+<p>https://developers.google.com/speed/pagespeed/insights</p>
+<ul>
+<li>
+<p>www.webpagetest.org</p>
+</li>
+<li>
+<p><a href="https://developers.google.com/web/tools/chrome-devtools/evaluate-performance/reference#activities">View main thread activities</a> in a table to sort activities based on which ones took up the most time.</p>
+</li>
+<li>
+<p><a href="https://developers.google.com/web/tools/chrome-devtools/evaluate-performance/reference#fps">Analyze frames per second (FPS)</a> to measure whether your animations truly run smoothly.</p>
+</li>
+<li>
+<p><a href="https://developers.google.com/web/updates/2017/11/devtools-release-notes#perf-monitor">Monitor CPU usage, JS heap size, DOM nodes, layouts per second, and more</a> in real-time with the Performance Monitor.</p>
+</li>
+<li>
+<p><a href="https://developers.google.com/web/tools/chrome-devtools/evaluate-performance/reference#screenshots">Capture screenshots while recording</a> to play back exactly how the page looked while the page loaded, or an animation fired, and so on.</p>
+</li>
+<li>
+<p><a href="https://developers.google.com/web/tools/chrome-devtools/evaluate-performance/reference#interactions">View interactions</a> to quickly identify what happened on a page after a user interacted with it.</p>
+</li>
+<li>
+<p><a href="https://developers.google.com/web/tools/chrome-devtools/evaluate-performance/reference#scrolling-performance-issues">Find scroll performance issues in real-time</a> by highlighting the page whenever a potentially problematic listener fires.</p>
+</li>
+<li>
+<p><a href="https://developers.google.com/web/tools/chrome-devtools/evaluate-performance/reference#paint-flashing">View paint events in real-time</a> to identify costly paint events that may be harming the performance of your animations.</p>
+</li>
+<li>
+<p><a href="https://developers.google.com/web/tools/chrome-devtools/evaluate-performance/reference#main">View main thread activity</a> to view every event that occurred on the main thread while you were recording.</p>
+</li>
+<li>
+<p>Other Resources:</p>
+</li>
+</ul>
+<p>http://optimizilla.com/</p>
+<p>https://tools.pingdom.com/</p>
+<p>https://www.thinkwithgoogle.com/feature/mobile/</p>
+<p>https://developers.google.com/web/tools/lighthouse/</p>
+<p>http://websitespeedranker.com/</p>
+<p>https://pageweight.imgix.com/</p>
+<p>https://developers.google.com/speed/pagespeed/insights/</p>
+<p>https://passmarked.com/</p>
+<p>https://images.guide/</p>
+<p>https://www.crazyegg.com/blog/image-editing-tools/</p>
+<h2 id="http2">HTTP/2</h2>
+<p>Main goal is to improve network latency. May change the way you optimize for performance.</p>
+<p>https://developers.google.com/web/fundamentals/performance/http2/</p>
+<p>Then start getting ready for <a href="https://blog.cloudflare.com/http3-the-past-present-and-future/">http/3</a>.</p>
                 
                   
                 
@@ -580,13 +708,13 @@
           </a>
         
         
-          <a href="../ReactRouter/" title="React Router" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../SSH/" title="SSH" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
               <span class="md-flex__ellipsis">
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                React Router
+                SSH
               </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink">
