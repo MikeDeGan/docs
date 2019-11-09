@@ -4,11 +4,11 @@ title: Performance
 
 # Tips for web site performance
 
-## network transfer optimizations
+## Network Transfer Optimizations
 
-1. minimize your html, css and js files.
+- Minimize your html, css and js files.
 
-Optimize images
+## Optimize images
 
 - use the appropriate image format for the job
   - animations - use a gif
@@ -91,3 +91,67 @@ Optimize images
 - Minimize DOM manipulation
 
 - Avoid long running Javascript
+
+- Chrome is working on Javascript not being parser blocking (render blocking)
+
+## Resource Prefetching
+
+Resource prefetching are ways of preloading or preparing for things that are very likely to be needed in the future. Things like resolving DNS for URLs that we know we are likely to visit or 'prefetching' images that will be needed soon.
+
+- https://css-tricks.com/prefetching-preloading-prebrowsing/
+
+## Speed Analysis Tools
+
+These sites will analyze your site and provide a detailed report scoring the site and showing where to improve.
+
+- PageSpeed by Google
+
+  https://developers.google.com/speed/pagespeed/insights
+
+- www.webpagetest.org
+
+- [View main thread activities](https://developers.google.com/web/tools/chrome-devtools/evaluate-performance/reference#activities) in a table to sort activities based on which ones took up the most time.
+
+- [Analyze frames per second (FPS)](https://developers.google.com/web/tools/chrome-devtools/evaluate-performance/reference#fps) to measure whether your animations truly run smoothly.
+
+- [Monitor CPU usage, JS heap size, DOM nodes, layouts per second, and more](https://developers.google.com/web/updates/2017/11/devtools-release-notes#perf-monitor) in real-time with the Performance Monitor.
+
+- [Capture screenshots while recording](https://developers.google.com/web/tools/chrome-devtools/evaluate-performance/reference#screenshots) to play back exactly how the page looked while the page loaded, or an animation fired, and so on.
+
+- [View interactions](https://developers.google.com/web/tools/chrome-devtools/evaluate-performance/reference#interactions) to quickly identify what happened on a page after a user interacted with it.
+
+- [Find scroll performance issues in real-time](https://developers.google.com/web/tools/chrome-devtools/evaluate-performance/reference#scrolling-performance-issues) by highlighting the page whenever a potentially problematic listener fires.
+
+- [View paint events in real-time](https://developers.google.com/web/tools/chrome-devtools/evaluate-performance/reference#paint-flashing) to identify costly paint events that may be harming the performance of your animations.
+
+- [View main thread activity](https://developers.google.com/web/tools/chrome-devtools/evaluate-performance/reference#main) to view every event that occurred on the main thread while you were recording.
+
+- Other Resources:
+
+  http://optimizilla.com/
+
+  https://tools.pingdom.com/
+
+  https://www.thinkwithgoogle.com/feature/mobile/
+
+  https://developers.google.com/web/tools/lighthouse/
+
+  http://websitespeedranker.com/
+
+  https://pageweight.imgix.com/
+
+  https://developers.google.com/speed/pagespeed/insights/
+
+  https://passmarked.com/
+
+  https://images.guide/
+
+  https://www.crazyegg.com/blog/image-editing-tools/
+
+## HTTP/2
+
+Main goal is to improve network latency. May change the way you optimize for performance.
+
+https://developers.google.com/web/fundamentals/performance/http2/
+
+Then start getting ready for [http/3]( https://blog.cloudflare.com/http3-the-past-present-and-future/).
