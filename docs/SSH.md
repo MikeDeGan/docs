@@ -50,7 +50,7 @@ The -t is for 'type', the -b if for bytes. It will ask you for a keyname and a p
 
 ## SSH on Github
 
-I like to create a different key for each repo and client. Usually name them id_rsa_reponame.
+I like to create a different key for each computer that I will connect from. Usually name them id_rsa_computername.
 
 Start the ssh agent from the .ssh hidden folder
 
