@@ -109,3 +109,4 @@ Note that on your first push you will receive a warning. You are supposed to cal
 > The authenticity of host 'github.com (140.82.114.3)' can't be established.
 
 If the shown RSA fingerprint looks correct then enter 'yes' to add github to the list of known sites
+
