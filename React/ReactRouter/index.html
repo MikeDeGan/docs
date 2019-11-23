@@ -335,6 +335,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#redirect" class="md-nav__link">
+    Redirect
+  </a>
+  
+</li>
+      
       
       
       
@@ -517,6 +524,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#redirect" class="md-nav__link">
+    Redirect
+  </a>
+  
+</li>
+      
       
       
       
@@ -570,6 +584,38 @@ export default createHistory();
     &lt;Route path=&quot;/streams/delete/:id&quot; exact component={StreamDelete} /&gt;
     &lt;Route path=&quot;/streams/:id&quot; exact component={StreamShow} /&gt;
   &lt;/Switch&gt;
+</code></pre>
+
+<h2 id="redirect">Redirect</h2>
+<p>Redirect will take any route that falls through and redirect to wherever you send it.</p>
+<pre><code class="javascript">import React from 'react';
+import {
+  BrowserRouter as Router,
+  Route,
+  Redirect,
+  Switch
+} from 'react-router-dom';
+
+import Users from './user/pages/Users';
+import NewPlace from './places/pages/NewPlace';
+
+const App = () =&gt; {
+  return (
+    &lt;Router&gt;
+      &lt;Switch&gt;
+        &lt;Route path=&quot;/&quot; exact&gt;
+          &lt;Users /&gt;
+        &lt;/Route&gt;
+        &lt;Route path=&quot;/places/new&quot; exact&gt;
+          &lt;NewPlace /&gt;
+        &lt;/Route&gt;
+        &lt;Redirect to=&quot;/&quot; /&gt;
+      &lt;/Switch&gt;
+    &lt;/Router&gt;
+  );
+};
+
+export default App;
 </code></pre>
                 
                   
