@@ -14,7 +14,9 @@ OpenID flow is very similar, basically because it is just OAuth with some ID stu
 
 ![OpenID flow](./images/Screenshot 2019-11-23 at 9.59.41 AM.png)
 
-A good overview of Oauth and OpenID on YouTube. https://www.youtube.com/watch?v=996OiexHze0
+A good overview of Oauth and OpenID on YouTube. [OAuth Presentation](https://www.youtube.com/watch?v=996OiexHze0)
+
+
 
 
 
