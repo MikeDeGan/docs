@@ -85,3 +85,35 @@ const App = () => {
 export default App;
 ```
 
+## NavLink
+
+NavLink is similar to Link except you can examine the url and set styling depending on if you are currently on that page and that kind of thing. 
+
+```javascript
+import React from "react";
+import { NavLink } from "react-router-dom";
+
+import "./NavLinks.css";
+
+const NavLinks = props => {
+  return (
+    <ul className="nav-links">
+      <li>
+        <NavLink to="/" exact>
+          ALL USERS
+        </NavLink>
+      </li>
+      <li>
+        <NavLink to="/">MY PLACES</NavLink>
+      </li>
+      <li>
+        <NavLink to="/">ADD PLACE</NavLink>
+      </li>
+      <li>
+        <NavLink to="/">AUTHENTICATE</NavLink>
+      </li>
+    </ul>
+  );
+};
+```
+
