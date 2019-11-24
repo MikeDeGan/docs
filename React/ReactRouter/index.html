@@ -354,6 +354,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#navlink" class="md-nav__link">
+    NavLink
+  </a>
+  
+</li>
+      
       
       
       
@@ -543,6 +550,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#navlink" class="md-nav__link">
+    NavLink
+  </a>
+  
+</li>
+      
       
       
       
@@ -628,6 +642,35 @@ const App = () =&gt; {
 };
 
 export default App;
+</code></pre>
+
+<h2 id="navlink">NavLink</h2>
+<p>NavLink is similar to Link except you can examine the url and set styling depending on if you are currently on that page and that kind of thing. </p>
+<pre><code class="javascript">import React from &quot;react&quot;;
+import { NavLink } from &quot;react-router-dom&quot;;
+
+import &quot;./NavLinks.css&quot;;
+
+const NavLinks = props =&gt; {
+  return (
+    &lt;ul className=&quot;nav-links&quot;&gt;
+      &lt;li&gt;
+        &lt;NavLink to=&quot;/&quot; exact&gt;
+          ALL USERS
+        &lt;/NavLink&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+        &lt;NavLink to=&quot;/&quot;&gt;MY PLACES&lt;/NavLink&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+        &lt;NavLink to=&quot;/&quot;&gt;ADD PLACE&lt;/NavLink&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+        &lt;NavLink to=&quot;/&quot;&gt;AUTHENTICATE&lt;/NavLink&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  );
+};
 </code></pre>
                 
                   
