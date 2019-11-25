@@ -68,3 +68,4 @@ NOTE:
 
 You would normally use Portals to render modal windows but would also use portals if trying to render some React component into some html that was not created by your application like server side rendered html like Java or Ruby or something like that.
 
+React Portals are usually used when creating a modal window, hovercard or tooltip. A portal will render the React component under a different DOM element. Check out the [React documentation](https://reactjs.org/docs/portals.html) for more information.
