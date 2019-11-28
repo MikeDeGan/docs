@@ -338,6 +338,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#useparams" class="md-nav__link">
+    useParams
+  </a>
+  
+</li>
+      
       
       
       
@@ -583,6 +590,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#useparams" class="md-nav__link">
+    useParams
+  </a>
+  
+</li>
+      
       
       
       
@@ -668,6 +682,12 @@ const Shop = props =&gt; {
 </code></pre>
 
 <p>The key here is the second element of the useEffect function, the empty array []. The second element controls when this function gets run. It will run whenever the second element changes. So setting the second element to an empty array will ensure that it will never change and never run again.</p>
+<h2 id="useparams">useParams</h2>
+<p>useParams will pull any parameter values from the route. In this example the route was something like /:userId/places. </p>
+<pre><code class="javascript">import { useParams } from &quot;react-router-dom&quot;;
+...
+  const userId = useParams().userId;
+</code></pre>
                 
                   
                 
