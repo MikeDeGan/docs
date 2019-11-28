@@ -92,3 +92,13 @@ const Shop = props => {
 
 The key here is the second element of the useEffect function, the empty array []. The second element controls when this function gets run. It will run whenever the second element changes. So setting the second element to an empty array will ensure that it will never change and never run again.
 
+## useParams
+
+useParams will pull any parameter values from the route. In this example the route was something like /:userId/places. 
+
+```javascript
+import { useParams } from "react-router-dom";
+...
+  const userId = useParams().userId;
+```
+
