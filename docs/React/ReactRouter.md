@@ -117,3 +117,12 @@ const NavLinks = props => {
 };
 ```
 
+## useParams
+
+useParams will pull any parameter values from the route. In this example the route was something like /:userId/places. 
+
+```javascript
+import { useParams } from "react-router-dom";
+...
+  const userId = useParams().userId;
+```
