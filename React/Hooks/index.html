@@ -345,6 +345,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#useref" class="md-nav__link">
+    useRef
+  </a>
+  
+</li>
+      
       
       
       
@@ -597,6 +604,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#useref" class="md-nav__link">
+    useRef
+  </a>
+  
+</li>
+      
       
       
       
@@ -687,6 +701,62 @@ const Shop = props =&gt; {
 <pre><code class="javascript">import { useParams } from &quot;react-router-dom&quot;;
 ...
   const userId = useParams().userId;
+</code></pre>
+
+<h2 id="useref">useRef</h2>
+<p>useRef will allow you to create a reference to a DOM node. A pointer to a DOM node. Also can be used to create a variable that will survive a re-render cycle and will not lose its value.  You can use getDocumentById etc. but using useRef is smoother with React. As shown in this <a href="https://github.com/MikeDeGan/mern/blob/master/src/shared/components/UIElements/Map.js">example</a>.</p>
+<pre><code class="javascript">import React, {useRef} from 'react';
+
+import './Map.css';
+
+const Map = props =&gt; {
+    const mapRef = useRef();
+
+    const map = new window.google.maps.Map(mapRef.current, {
+        center: props.center,
+        zoom: props.zoom
+    });
+
+    new window.google.maps.Marker({ position: props.center, map: map});
+
+    return (
+        &lt;div ref={mapRef}
+        className={`map $map{props.className}`}
+        style={props.style}
+        &gt;&lt;/div&gt;
+    )
+}
+</code></pre>
+
+<p>Of course in the above example we are trying to reference mapRef before it has been linked to the div so we should use another hook in this case:</p>
+<pre><code class="javascript">import React, { useRef, useEffect } from &quot;react&quot;;
+
+import &quot;./Map.css&quot;;
+
+const Map = props =&gt; {
+  const mapRef = useRef();
+
+  const { center, zoom } = props;
+
+  useEffect(() =&gt; {
+    const map = new window.google.maps.Map(mapRef.current, {
+      center: center,
+      zoom: zoom
+    });
+
+    new window.google.maps.Marker({ position: center, map: map });
+  }, [center, zoom]);
+
+  return (
+    &lt;div
+      ref={mapRef}
+      className={`map $map{props.className}`}
+      style={props.style}
+    &gt;&lt;/div&gt;
+  );
+};
+
+export default Map;
 </code></pre>
                 
                   
