@@ -102,3 +102,64 @@ import { useParams } from "react-router-dom";
   const userId = useParams().userId;
 ```
 
+## useRef
+
+useRef will allow you to create a reference to a DOM node. A pointer to a DOM node. Also can be used to create a variable that will survive a re-render cycle and will not lose its value.  You can use getDocumentById etc. but using useRef is smoother with React. As shown in this [example](https://github.com/MikeDeGan/mern/blob/master/src/shared/components/UIElements/Map.js).
+
+```javascript
+import React, {useRef} from 'react';
+
+import './Map.css';
+
+const Map = props => {
+    const mapRef = useRef();
+
+    const map = new window.google.maps.Map(mapRef.current, {
+        center: props.center,
+        zoom: props.zoom
+    });
+
+    new window.google.maps.Marker({ position: props.center, map: map});
+
+    return (
+        <div ref={mapRef}
+        className={`map $map{props.className}`}
+        style={props.style}
+        ></div>
+    )
+}
+```
+
+Of course in the above example we are trying to reference mapRef before it has been linked to the div so we should use another hook in this case:
+
+```javascript
+import React, { useRef, useEffect } from "react";
+
+import "./Map.css";
+
+const Map = props => {
+  const mapRef = useRef();
+
+  const { center, zoom } = props;
+
+  useEffect(() => {
+    const map = new window.google.maps.Map(mapRef.current, {
+      center: center,
+      zoom: zoom
+    });
+
+    new window.google.maps.Marker({ position: center, map: map });
+  }, [center, zoom]);
+
+  return (
+    <div
+      ref={mapRef}
+      className={`map $map{props.className}`}
+      style={props.style}
+    ></div>
+  );
+};
+
+export default Map;
+```
+
