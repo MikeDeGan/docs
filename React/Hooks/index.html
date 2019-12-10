@@ -352,6 +352,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#usecallback" class="md-nav__link">
+    useCallback
+  </a>
+  
+</li>
+      
       
       
       
@@ -611,6 +618,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#usecallback" class="md-nav__link">
+    useCallback
+  </a>
+  
+</li>
+      
       
       
       
@@ -758,6 +772,11 @@ const Map = props =&gt; {
 
 export default Map;
 </code></pre>
+
+<h2 id="usecallback">useCallback</h2>
+<p>this hook takes a function and an array of dependencies as parameters like ‘useEffect’. The function’s return value will only be changed if one of the dependencies value changes — otherwise a cached value will be returned.</p>
+<p>Take for example a parent component that often re-renders. Inside the parent, we have a child component that takes a function-prop. At each re-render, the Child will re-execute its function prop uselessly. However, if you pass ‘useCallback’ as a prop with a dependency array, it resolves the issue because the function will be executed only when the dependency changes. Every other re-render will then get a cached function.</p>
+<p><a href="https://blog.hackages.io/react-hooks-usecallback-and-usememo-8d5bb2b67231">A nice article on this and useMemo.</a></p>
                 
                   
                 
