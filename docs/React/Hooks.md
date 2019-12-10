@@ -163,3 +163,11 @@ const Map = props => {
 export default Map;
 ```
 
+## useCallback
+
+this hook takes a function and an array of dependencies as parameters like ‘useEffect’. The function’s return value will only be changed if one of the dependencies value changes — otherwise a cached value will be returned.
+
+Take for example a parent component that often re-renders. Inside the parent, we have a child component that takes a function-prop. At each re-render, the Child will re-execute its function prop uselessly. However, if you pass ‘useCallback’ as a prop with a dependency array, it resolves the issue because the function will be executed only when the dependency changes. Every other re-render will then get a cached function.
+
+[A nice article on this and useMemo.](https://blog.hackages.io/react-hooks-usecallback-and-usememo-8d5bb2b67231)
+
