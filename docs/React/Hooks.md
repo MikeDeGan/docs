@@ -53,7 +53,7 @@ setState({el2: 'three'})
  you would have to either do 
 
 ```javascript
-setState({...state}, {el2: 'three'})
+setState({...state, el2: 'three'})
 ```
 
  or something similar.
